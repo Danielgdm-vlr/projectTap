@@ -1,0 +1,1 @@
+in mysql, create a database "library", cu o schema noua "library", care trebuie facut default
