@@ -1,9 +1,12 @@
-package com.tap.library.models;
+package com.tap.library.entities;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 
 @Entity
-public class Authors {
+@Table(name = "author")
+public class AuthorEntity {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -17,14 +20,18 @@ public class Authors {
     @Column(name = "info")
     private String info;
 
-    public Authors() {
+//    @OneToOne(mappedBy = "authorEntity")
+//    @JsonBackReference
+//    private BookEntity bookEntity;
+
+    public AuthorEntity() {
     }
 
-    public Authors(String fullName) {
+    public AuthorEntity(String fullName) {
         this.fullName = fullName;
     }
 
-    public Authors(String fullName, String info) {
+    public AuthorEntity(String fullName, String info) {
         this.fullName = fullName;
         this.info = info;
     }
@@ -49,12 +56,21 @@ public class Authors {
         this.info = info;
     }
 
+//    public BookEntity getBookEntity() {
+//        return bookEntity;
+//    }
+//
+//    public void setBookEntity(BookEntity bookEntity) {
+//        this.bookEntity = bookEntity;
+//    }
+
     @Override
     public String toString() {
-        return "Authors{" +
+        return "AuthorEntity{" +
                 "id=" + id +
                 ", fullName='" + fullName + '\'' +
                 ", info='" + info + '\'' +
+//                ", bookEntity=" + bookEntity +
                 '}';
     }
 }

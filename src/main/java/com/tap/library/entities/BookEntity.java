@@ -1,9 +1,14 @@
-package com.tap.library.models;
+package com.tap.library.entities;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
-public class Books {
+@Table(name = "book")
+public class BookEntity {
 
     @Id
     @Column(name = "id")
@@ -23,24 +28,25 @@ public class Books {
     private Integer rating;
 
     @Basic
-    @Column(name = "stoc")
-    private Integer stoc;
+    @Column(name = "stock")
+    private Integer stock;
 
     @Basic
     @Column(name = "publisher")
     private String publisherName;
 
-    @Basic
-    @Column(name = "idAuthor")
-    private String idAuthor;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idAuthor", referencedColumnName = "id")
+    @JsonManagedReference
+    private AuthorEntity authorEntity;
 
-    public Books() {
+    public BookEntity() {
     }
 
-    public Books(String name, String genre, Integer stoc, String publisherName) {
+    public BookEntity(String name, String genre, Integer stock, String publisherName) {
         this.name = name;
         this.genre = genre;
-        this.stoc = stoc;
+        this.stock = stock;
         this.publisherName = publisherName;
     }
 
@@ -72,12 +78,12 @@ public class Books {
         this.rating = rating;
     }
 
-    public Integer getStoc() {
-        return stoc;
+    public Integer getStock() {
+        return stock;
     }
 
-    public void setStoc(Integer stoc) {
-        this.stoc = stoc;
+    public void setStock(Integer stock) {
+        this.stock = stock;
     }
 
     public String getPublisherName() {
@@ -88,24 +94,23 @@ public class Books {
         this.publisherName = publisherName;
     }
 
-    public String getIdAuthor() {
-        return idAuthor;
+    public AuthorEntity getAuthorEntity() {
+        return authorEntity;
     }
 
-    public void setIdAuthor(String idAuthor) {
-        this.idAuthor = idAuthor;
+    public void setAuthorEntity(AuthorEntity authorEntity) {
+        this.authorEntity = authorEntity;
     }
-
     @Override
     public String toString() {
-        return "Books{" +
+        return "BookEntity{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", genre='" + genre + '\'' +
                 ", rating=" + rating +
-                ", stoc=" + stoc +
+                ", stock=" + stock +
                 ", publisherName='" + publisherName + '\'' +
-                ", idAuthor='" + idAuthor + '\'' +
+                ", authorEntity=" + authorEntity +
                 '}';
     }
 }

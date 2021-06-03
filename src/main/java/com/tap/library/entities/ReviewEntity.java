@@ -1,18 +1,18 @@
-package com.tap.library.models;
+package com.tap.library.entities;
 
-public class Reviews {
+public class ReviewEntity {
     private Integer id;
     private Integer idBook;
-    private Integer idClient;
+    private Integer idUser;
     private String reviewText;
     private Integer bookRating;
 
-    public Reviews() {
+    public ReviewEntity() {
     }
 
-    public Reviews(Integer idBook, Integer idClient, String reviewText, Integer bookRating) {
+    public ReviewEntity(Integer idBook, Integer idUser, String reviewText, Integer bookRating) {
         this.idBook = idBook;
-        this.idClient = idClient;
+        this.idUser = idUser;
         this.reviewText = reviewText;
         this.bookRating = bookRating;
     }
@@ -29,12 +29,12 @@ public class Reviews {
         this.idBook = idBook;
     }
 
-    public Integer getIdClient() {
-        return idClient;
+    public Integer getIdUser() {
+        return idUser;
     }
 
-    public void setIdClient(Integer idClient) {
-        this.idClient = idClient;
+    public void setIdUser(Integer idUser) {
+        this.idUser = idUser;
     }
 
     public String getReviewText() {
@@ -58,7 +58,7 @@ public class Reviews {
         return "Reviews{" +
                 "id=" + id +
                 ", idBook=" + idBook +
-                ", idClient=" + idClient +
+                ", idUser=" + idUser +
                 ", reviewText='" + reviewText + '\'' +
                 ", bookRating=" + bookRating +
                 '}';

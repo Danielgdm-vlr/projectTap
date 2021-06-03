@@ -5,11 +5,10 @@
              version="3.0">
     <persistence-unit name="library" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>com.tap.library.models.Authors</class>
-        <class>com.tap.library.models.Books</class>
-        <class>com.tap.library.models.Clients</class>
-        <class>com.tap.library.models.Managers</class>
-        <class>com.tap.library.models.Users</class>
+        <class>com.tap.library.entities.AuthorEntity</class>
+        <class>com.tap.library.entities.BookEntity</class>
+        <class>com.tap.library.entities.RequestEntity</class>
+        <class>com.tap.library.entities.UserEntity</class>
         <properties>
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/library"/>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
