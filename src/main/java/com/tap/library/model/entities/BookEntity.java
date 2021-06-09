@@ -1,10 +1,8 @@
-package com.tap.library.entities;
+package com.tap.library.model.entities;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table(name = "book")
@@ -43,9 +41,10 @@ public class BookEntity {
     public BookEntity() {
     }
 
-    public BookEntity(String name, String genre, Integer stock, String publisherName) {
+    public BookEntity(String name, String genre, Integer rating, Integer stock, String publisherName) {
         this.name = name;
         this.genre = genre;
+        this.rating = rating;
         this.stock = stock;
         this.publisherName = publisherName;
     }

@@ -1,9 +1,9 @@
 package com.tap.library.config;
 
-import com.tap.library.entities.AuthorEntity;
-import com.tap.library.entities.BookEntity;
-import com.tap.library.entities.RequestEntity;
-import com.tap.library.entities.UserEntity;
+import com.tap.library.model.entities.AuthorEntity;
+import com.tap.library.model.entities.BookEntity;
+import com.tap.library.model.entities.RequestEntity;
+import com.tap.library.model.entities.UserEntity;
 import com.tap.library.repository.AuthorRepository;
 import com.tap.library.repository.BookRepository;
 import com.tap.library.repository.RequestRepository;
@@ -20,9 +20,9 @@ import java.time.temporal.ChronoUnit;
 public class AppConfig {
     @Bean
     CommandLineRunner commandLineRunnerApp(BookRepository bookRepository,
-                                                  AuthorRepository authorRepository,
-                                                  UserRepository userRepository,
-                                                  RequestRepository requestRepository){
+                                           AuthorRepository authorRepository,
+                                           UserRepository userRepository,
+                                           RequestRepository requestRepository){
         return args ->{
             BookEntity bookEntity;
             AuthorEntity authorEntity;
@@ -33,7 +33,12 @@ public class AppConfig {
             userRepository.save(userEntity);
 
             for(int i = 1; i <= 3; i++ ){
-                bookEntity = new BookEntity(String.format("name%s", i), String.format("genre%s", i + 20), 3, String.format("publisher%s", i));
+                bookEntity = new BookEntity(
+                        String.format("name%s", i),
+                        String.format("genre%s", i + 20),
+                        5,
+                        3,
+                        String.format("publisher%s", i));
 
                 authorEntity = new AuthorEntity(String.format("author%s", i), String.format("wrote books %s", i*20));
                 bookEntity.setAuthorEntity(authorEntity);
@@ -51,6 +56,7 @@ public class AppConfig {
                 userRepository.save(userEntity);
                 requestRepository.save(requestEntity);
             }
+
             bookEntity = null;
             authorEntity = null;
             userEntity = null;

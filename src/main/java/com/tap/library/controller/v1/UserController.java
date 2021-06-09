@@ -1,6 +1,6 @@
-package com.tap.library.controller;
+package com.tap.library.controller.v1;
 
-import com.tap.library.entities.UserEntity;
+import com.tap.library.model.entities.UserEntity;
 import com.tap.library.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

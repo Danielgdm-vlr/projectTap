@@ -1,6 +1,6 @@
 package com.tap.library.service;
 
-import com.tap.library.entities.RequestEntity;
+import com.tap.library.model.entities.RequestEntity;
 import com.tap.library.repository.RequestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

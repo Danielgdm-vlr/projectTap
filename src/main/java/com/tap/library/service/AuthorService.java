@@ -1,26 +1,12 @@
 package com.tap.library.service;
 
-import com.tap.library.entities.AuthorEntity;
-import com.tap.library.repository.AuthorRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import com.tap.library.model.dto.AuthorDto;
+import com.tap.library.model.entities.AuthorEntity;
 
 import java.util.List;
 
-@Service
-public class AuthorService {
-    private final AuthorRepository authorRepository;
+public interface AuthorService {
+    void add(AuthorDto authorDto);
 
-    @Autowired
-    public AuthorService(AuthorRepository authorRepository){
-        this.authorRepository = authorRepository;
-    }
-
-    public void add(AuthorEntity authorEntity){
-        authorRepository.save(authorEntity);
-    }
-
-    public List<AuthorEntity> getAll(){
-        return authorRepository.findAll();
-    }
+    List<AuthorDto> getAll();
 }

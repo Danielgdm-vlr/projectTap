@@ -1,6 +1,4 @@
-package com.tap.library.entities;
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
+package com.tap.library.model.entities;
 
 import javax.persistence.*;
 
@@ -32,6 +30,12 @@ public class AuthorEntity {
     }
 
     public AuthorEntity(String fullName, String info) {
+        this.fullName = fullName;
+        this.info = info;
+    }
+
+    public AuthorEntity(Integer id, String fullName, String info) {
+        this.id = id;
         this.fullName = fullName;
         this.info = info;
     }

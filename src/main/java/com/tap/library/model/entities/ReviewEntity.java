@@ -1,4 +1,4 @@
-package com.tap.library.entities;
+package com.tap.library.model.entities;
 
 public class ReviewEntity {
     private Integer id;

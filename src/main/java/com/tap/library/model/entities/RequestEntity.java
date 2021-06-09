@@ -1,4 +1,4 @@
-package com.tap.library.entities;
+package com.tap.library.model.entities;
 
 import javax.persistence.*;
 import java.sql.Date;
