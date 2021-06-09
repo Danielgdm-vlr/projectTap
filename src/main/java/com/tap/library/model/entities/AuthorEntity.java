@@ -1,6 +1,10 @@
 package com.tap.library.model.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "author")
@@ -18,15 +22,11 @@ public class AuthorEntity {
     @Column(name = "info")
     private String info;
 
-//    @OneToOne(mappedBy = "authorEntity")
+//    @OneToMany(mappedBy = "authorEntity", cascade = CascadeType.ALL)
 //    @JsonBackReference
-//    private BookEntity bookEntity;
+//    private List<BookEntity> bookEntityList = new ArrayList<>();
 
     public AuthorEntity() {
-    }
-
-    public AuthorEntity(String fullName) {
-        this.fullName = fullName;
     }
 
     public AuthorEntity(String fullName, String info) {
@@ -60,12 +60,13 @@ public class AuthorEntity {
         this.info = info;
     }
 
-//    public BookEntity getBookEntity() {
-//        return bookEntity;
+//    public List<BookEntity> getBookEntityList() {
+//        return bookEntityList;
 //    }
 //
-//    public void setBookEntity(BookEntity bookEntity) {
-//        this.bookEntity = bookEntity;
+//    public void addBook(BookEntity bookEntity){
+//        bookEntityList.add(bookEntity);
+//        bookEntity.setAuthorEntity(this);
 //    }
 
     @Override

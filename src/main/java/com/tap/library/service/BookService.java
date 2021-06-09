@@ -8,4 +8,6 @@ public interface BookService {
     void add(BookDto bookDto);
 
     List<BookDto> getAll();
+
+    List<BookDto> getFilteredBooksByName(String name);
 }

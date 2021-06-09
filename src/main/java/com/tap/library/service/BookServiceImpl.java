@@ -9,6 +9,7 @@ import com.tap.library.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -24,13 +25,25 @@ public class BookServiceImpl implements BookService{
         this.authorRepository = authorRepository;
     }
 
-
+    @Transactional
     public void add(BookDto bookDto){
-        bookRepository.save(convertDtoToEntity(bookDto));
+        BookEntity bookEntity = convertDtoToEntity(bookDto);
+        bookRepository.save(bookEntity);
     }
 
     public List<BookDto> getAll(){
         List<BookEntity> bookEntityList = bookRepository.findAll();
+        List<BookDto> bookDtoList = new ArrayList<>();
+
+        for(BookEntity bookEntity: bookEntityList){
+            bookDtoList.add(convertEntityToDto(bookEntity));
+        }
+
+        return bookDtoList;
+    }
+
+    public List<BookDto> getFilteredBooksByName(String name){
+        List<BookEntity> bookEntityList = bookRepository.findByNameContaining(name);
         List<BookDto> bookDtoList = new ArrayList<>();
 
         for(BookEntity bookEntity: bookEntityList){
@@ -49,18 +62,10 @@ public class BookServiceImpl implements BookService{
         bookEntity.setStock(bookDto.getStock());
         bookEntity.setPublisherName(bookDto.getPublisherName());
 
-        Optional<AuthorEntity> authorEntityOptional = authorRepository.findAuthorEntityByFullName(bookDto.getAuthorDto().getFullName());
-        AuthorEntity authorEntity = new AuthorEntity();
+//        Optional<AuthorEntity> authorEntityOptional = authorRepository.findAuthorEntityByFullName(bookDto.getAuthorDto().getFullName());
+//        bookEntity.setAuthorEntity(authorEntityOptional.get());
 
-        if(authorEntityOptional.isPresent()){
-            authorEntity = new AuthorEntity(
-//                    authorEntityOptional.get().getId(),
-                    authorEntityOptional.get().getFullName(),
-                    authorEntityOptional.get().getInfo()
-            );
-        }
-
-        bookEntity.setAuthorEntity(authorEntity);
+        bookEntity.setAuthorEntity(authorRepository.findAuthorEntityByFullName(bookDto.getAuthorDto().getFullName()));
 
         return bookEntity;
     }

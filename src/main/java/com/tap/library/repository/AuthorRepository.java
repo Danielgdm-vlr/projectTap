@@ -10,5 +10,8 @@ import java.util.Optional;
 @Repository
 public interface AuthorRepository extends JpaRepository<AuthorEntity, Integer> {
     @Query("select author from AuthorEntity author where author.fullName = ?1")
-    Optional<AuthorEntity> findAuthorEntityByFullName(String fullName);
+//    Optional<AuthorEntity> findAuthorEntityByFullName(String fullName);
+    AuthorEntity findAuthorEntityByFullName(String fullName);
+
+
 }

@@ -33,9 +33,8 @@ public class BookEntity {
     @Column(name = "publisher")
     private String publisherName;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JoinColumn(name = "idAuthor", referencedColumnName = "id")
-    @JsonManagedReference
     private AuthorEntity authorEntity;
 
     public BookEntity() {
