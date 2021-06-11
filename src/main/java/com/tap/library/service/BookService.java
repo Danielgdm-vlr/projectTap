@@ -9,5 +9,11 @@ public interface BookService {
 
     List<BookDto> getAll();
 
-    List<BookDto> getFilteredBooksByName(String name);
+    List<BookDto> getByName(String name);
+
+    List<BookDto> getByGenre(String genre);
+
+    List<BookDto> getByNameAndGenre(String name, String genre);
+
+    List<BookDto> getByAuthor(String name);
 }

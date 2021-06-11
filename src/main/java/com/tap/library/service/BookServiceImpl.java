@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class BookServiceImpl implements BookService{
@@ -42,12 +41,47 @@ public class BookServiceImpl implements BookService{
         return bookDtoList;
     }
 
-    public List<BookDto> getFilteredBooksByName(String name){
+    public List<BookDto> getByName(String name){
         List<BookEntity> bookEntityList = bookRepository.findByNameContaining(name);
         List<BookDto> bookDtoList = new ArrayList<>();
 
         for(BookEntity bookEntity: bookEntityList){
             bookDtoList.add(convertEntityToDto(bookEntity));
+        }
+
+        return bookDtoList;
+    }
+
+    public List<BookDto> getByGenre(String genre){
+        List<BookEntity> bookEntityList = bookRepository.findByGenreContaining(genre);
+        List<BookDto> bookDtoList = new ArrayList<>();
+
+        for(BookEntity bookEntity: bookEntityList){
+            bookDtoList.add(convertEntityToDto(bookEntity));
+        }
+
+        return bookDtoList;
+    }
+
+    public List<BookDto> getByNameAndGenre(String name, String genre){
+        List<BookEntity> bookEntityList = bookRepository.findByNameContainingAndGenreContaining(name, genre);
+        List<BookDto> bookDtoList = new ArrayList<>();
+
+        for (BookEntity bookEntity: bookEntityList){
+            bookDtoList.add(convertEntityToDto(bookEntity));
+        }
+
+        return bookDtoList;
+    }
+
+    public List<BookDto> getByAuthor(String name){
+        List<BookEntity> bookEntityList = bookRepository.findAll();
+        List<BookDto> bookDtoList = new ArrayList<>();
+
+        for(BookEntity bookEntity: bookEntityList){
+            if(bookEntity.getAuthorEntity().getFullName().equals(name)) {
+                bookDtoList.add(convertEntityToDto(bookEntity));
+            }
         }
 
         return bookDtoList;

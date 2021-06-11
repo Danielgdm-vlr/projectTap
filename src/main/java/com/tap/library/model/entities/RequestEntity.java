@@ -15,10 +15,6 @@ public class RequestEntity {
     @JoinColumn(name = "idUser", referencedColumnName = "id")
     private UserEntity userEntity;
 
-//    @OneToOne
-//    @JoinColumn(name = "idGues", referencedColumnName = "id")
-//    private GuestEntity guestEntity;
-
     @OneToOne
     @JoinColumn(name = "idBook", referencedColumnName = "id")
     private BookEntity bookEntity;
@@ -40,11 +36,12 @@ public class RequestEntity {
         this.startDate = startDate;
     }
 
-//    public RequestEntity(GuestEntity guestEntity, BookEntity bookEntity, Date startDate) {
-//        this.guestEntity = guestEntity;
-//        this.bookEntity = bookEntity;
-//        this.startDate = startDate;
-//    }
+    public RequestEntity(UserEntity userEntity, BookEntity bookEntity, Date startDate, Date endDate) {
+        this.userEntity = userEntity;
+        this.bookEntity = bookEntity;
+        this.startDate = startDate;
+        this.endDate = endDate;
+    }
 
     public Integer getId() {
         return id;
@@ -61,14 +58,6 @@ public class RequestEntity {
     public void setUserEntity(UserEntity userEntity) {
         this.userEntity = userEntity;
     }
-
-//    public GuestEntity getGuestEntity() {
-//        return guestEntity;
-//    }
-//
-//    public void setGuestEntity(GuestEntity guestEntity) {
-//        this.guestEntity = guestEntity;
-//    }
 
     public BookEntity getBookEntity() {
         return bookEntity;
@@ -99,7 +88,6 @@ public class RequestEntity {
         return "RequestEntity{" +
                 "id=" + id +
                 ", userEntity=" + userEntity +
-//                ", guestEntity=" + guestEntity +
                 ", bookEntity=" + bookEntity +
                 ", startDate=" + startDate +
                 ", endDate=" + endDate +

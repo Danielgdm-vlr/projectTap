@@ -10,8 +10,9 @@ import java.util.List;
 
 @Repository
 public interface BookRepository extends JpaRepository<BookEntity, Integer> {
-    @Query("update BookEntity set authorEntity = ?2 where id = ?1")
-    void setAuthor(int id, AuthorEntity authorEntity);
-
     List<BookEntity> findByNameContaining(String name);
+
+    List<BookEntity> findByGenreContaining(String genre);
+
+    List<BookEntity> findByNameContainingAndGenreContaining(String name, String genre);
 }

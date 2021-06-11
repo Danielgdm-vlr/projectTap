@@ -42,15 +42,7 @@ public class UserEntity {
     @Column(name = "isManager")
     private boolean isManager;
 
-//    @OneToOne(mappedBy = "userEntity")
-//    private RequestEntity requestEntity;
-
     public UserEntity() {
-    }
-
-    public UserEntity(String username, String password) {
-        this.username = username;
-        this.password = password;
     }
 
     public UserEntity(String username, String password, boolean isManager) {
@@ -151,7 +143,6 @@ public class UserEntity {
                 ", email='" + email + '\'' +
                 ", telephoneNumber='" + telephoneNumber + '\'' +
                 ", isManager=" + isManager +
-//                ", requestEntity=" + requestEntity +
                 '}';
     }
 }

@@ -1,26 +1,11 @@
 package com.tap.library.service;
 
-import com.tap.library.model.entities.UserEntity;
-import com.tap.library.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import com.tap.library.model.dto.UserDto;
 
 import java.util.List;
 
-@Service
-public class UserService {
-    private final UserRepository userRepository;
+public interface UserService {
+    void add(UserDto userDto);
 
-    @Autowired
-    public UserService(UserRepository userRepository){
-        this.userRepository = userRepository;
-    }
-
-    public void add(UserEntity userEntity){
-        userRepository.save(userEntity);
-    }
-
-    public List<UserEntity> getAll(){
-        return userRepository.findAll();
-    }
+    List<UserDto> getAll();
 }
