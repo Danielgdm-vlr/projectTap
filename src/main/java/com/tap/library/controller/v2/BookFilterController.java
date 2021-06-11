@@ -1,7 +1,7 @@
 package com.tap.library.controller.v2;
 
 import com.tap.library.model.dto.BookDto;
-import com.tap.library.service.BookServiceImpl;
+import com.tap.library.service.implementation.BookServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

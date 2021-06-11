@@ -1,17 +1,14 @@
 package com.tap.library.controller.v2;
 
 import com.tap.library.model.dto.UserDto;
-import com.tap.library.service.UserServiceImpl;
+import com.tap.library.service.implementation.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-public class LoginController {
-    private final UserServiceImpl userServiceImpl;
-
+public record LoginController(UserServiceImpl userServiceImpl) {
     @Autowired
-    public LoginController(UserServiceImpl userServiceImpl){
-        this.userServiceImpl = userServiceImpl;
+    public LoginController {
     }
 
     //this method returns a userDto if it finds one with the given parameters(which come from frontend)

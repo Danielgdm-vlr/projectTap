@@ -1,4 +1,4 @@
-package com.tap.library.service;
+package com.tap.library.service.implementation;
 
 import com.tap.library.model.dto.AuthorDto;
 import com.tap.library.model.dto.BookDto;
@@ -11,6 +11,7 @@ import com.tap.library.model.entities.UserEntity;
 import com.tap.library.repository.BookRepository;
 import com.tap.library.repository.RequestRepository;
 import com.tap.library.repository.UserRepository;
+import com.tap.library.service.intrf.RequestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

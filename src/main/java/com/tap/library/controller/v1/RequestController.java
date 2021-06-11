@@ -1,8 +1,7 @@
 package com.tap.library.controller.v1;
 
 import com.tap.library.model.dto.RequestDto;
-import com.tap.library.model.entities.RequestEntity;
-import com.tap.library.service.RequestServiceImpl;
+import com.tap.library.service.implementation.RequestServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

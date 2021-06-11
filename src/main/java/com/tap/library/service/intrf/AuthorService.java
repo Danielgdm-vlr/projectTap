@@ -1,7 +1,6 @@
-package com.tap.library.service;
+package com.tap.library.service.intrf;
 
 import com.tap.library.model.dto.AuthorDto;
-import com.tap.library.model.entities.AuthorEntity;
 
 import java.util.List;
 

@@ -1,8 +1,7 @@
 package com.tap.library.controller.v1;
 
 import com.tap.library.model.dto.UserDto;
-import com.tap.library.model.entities.UserEntity;
-import com.tap.library.service.UserServiceImpl;
+import com.tap.library.service.implementation.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

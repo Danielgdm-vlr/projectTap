@@ -1,8 +1,9 @@
-package com.tap.library.service;
+package com.tap.library.service.implementation;
 
 import com.tap.library.model.dto.AuthorDto;
 import com.tap.library.model.entities.AuthorEntity;
 import com.tap.library.repository.AuthorRepository;
+import com.tap.library.service.intrf.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class AuthorServiceImpl implements AuthorService{
+public class AuthorServiceImpl implements AuthorService {
     private final AuthorRepository authorRepository;
 
     @Autowired
