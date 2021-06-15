@@ -112,7 +112,10 @@ public class BookServiceImpl implements BookService {
                 bookEntity.getRating(),
                 bookEntity.getStock(),
                 bookEntity.getPublisherName(),
-                convertAuthorEntityToDto(bookEntity.getAuthorEntity())
+                convertAuthorEntityToDto(bookEntity.getAuthorEntity()),
+                bookEntity.getPhoto_categories(),
+                bookEntity.getPhoto_books()
+
         );
 
         return bookDto;

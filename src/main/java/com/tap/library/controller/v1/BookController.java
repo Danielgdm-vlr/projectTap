@@ -22,6 +22,7 @@ public class BookController {
         bookServiceImpl.add(bookDto);
     }
 
+//    @CrossOrigin(origins = "http://localhost:8080")
     @GetMapping
     public List<BookDto> getAll(){
         return bookServiceImpl.getAll();

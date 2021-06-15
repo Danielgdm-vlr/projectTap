@@ -7,8 +7,8 @@ import javax.persistence.*;
 public class BookEntity {
 
     @Id
-    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private Integer id;
 
     @Basic
@@ -35,15 +35,25 @@ public class BookEntity {
     @JoinColumn(name = "idAuthor", referencedColumnName = "id")
     private AuthorEntity authorEntity;
 
+    @Basic
+    @Column(name= "photo_categories")
+    private String photo_categories;
+
+    @Basic
+    @Column(name="photo_books")
+    private String photo_books;
+
     public BookEntity() {
     }
 
-    public BookEntity(String name, String genre, Integer rating, Integer stock, String publisherName) {
+    public BookEntity(String name, String genre, Integer rating, Integer stock, String publisherName,String photo_categories, String photo_books) {
         this.name = name;
         this.genre = genre;
         this.rating = rating;
         this.stock = stock;
         this.publisherName = publisherName;
+        this.photo_categories=photo_categories;
+        this.photo_books=photo_books;
     }
 
     public Integer getId() {
@@ -97,6 +107,15 @@ public class BookEntity {
     public void setAuthorEntity(AuthorEntity authorEntity) {
         this.authorEntity = authorEntity;
     }
+
+    public String getPhoto_categories() { return photo_categories;}
+
+    public void setPhoto_categories(String photo_categories) {this.photo_categories = photo_categories;}
+
+    public String getPhoto_books() { return photo_books;}
+
+    public void setPhoto_books(String photo_books) { this.photo_books = photo_books;}
+
     @Override
     public String toString() {
         return "BookEntity{" +
@@ -107,6 +126,8 @@ public class BookEntity {
                 ", stock=" + stock +
                 ", publisherName='" + publisherName + '\'' +
                 ", authorEntity=" + authorEntity +
+                ", photo_categories=" + photo_categories + '\'' +
+                ", photo_books=" + photo_books +
                 '}';
     }
 }

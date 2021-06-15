@@ -90,7 +90,9 @@ public class RequestServiceImpl implements RequestService {
                 bookEntity.getRating(),
                 bookEntity.getStock(),
                 bookEntity.getPublisherName(),
-                convertAuthorEntityToDto(bookEntity.getAuthorEntity())
+                convertAuthorEntityToDto(bookEntity.getAuthorEntity()),
+                bookEntity.getPhoto_categories(),
+                bookEntity.getPhoto_books()
         );
     }
 

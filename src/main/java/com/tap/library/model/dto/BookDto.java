@@ -9,17 +9,21 @@ public class BookDto implements Serializable {
     private int stock;
     private String publisherName;
     private AuthorDto authorDto;
+    private String photo_categories;
+    private String photo_books;
 
     public BookDto() {
     }
 
-    public BookDto(String name, String genre, int rating, int stock, String publisherName, AuthorDto authorDto) {
+    public BookDto(String name, String genre, int rating, int stock, String publisherName, AuthorDto authorDto,String photo_categories,String photo_books) {
         this.name = name;
         this.genre = genre;
         this.rating = rating;
         this.stock = stock;
         this.publisherName = publisherName;
         this.authorDto = authorDto;
+        this.photo_categories=photo_categories;
+        this.photo_books=photo_books;
     }
 
     public String getName() {
@@ -70,6 +74,14 @@ public class BookDto implements Serializable {
         this.authorDto = authorDto;
     }
 
+    public String getPhoto_categories() { return photo_categories;}
+
+    public void setPhoto_categories(String photo_categories) {this.photo_categories = photo_categories;}
+
+    public String getPhoto_books() { return photo_books;}
+
+    public void setPhoto_books(String photo_books) { this.photo_books = photo_books;}
+
     @Override
     public String toString() {
         return "BookDto{" +
@@ -79,6 +91,8 @@ public class BookDto implements Serializable {
                 ", stock=" + stock +
                 ", publisherName='" + publisherName + '\'' +
                 ", authorDto=" + authorDto +
+                ", photo_categories=" + photo_categories + '\'' +
+                ", photo_books=" + photo_books +
                 '}';
     }
 }
