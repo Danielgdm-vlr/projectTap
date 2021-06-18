@@ -21,7 +21,7 @@ public class BookEntity {
 
     @Basic
     @Column(name  = "rating")
-    private Integer rating;
+    private double rating;
 
     @Basic
     @Column(name = "stock")
@@ -46,7 +46,7 @@ public class BookEntity {
     public BookEntity() {
     }
 
-    public BookEntity(String name, String genre, Integer rating, Integer stock, String publisherName,String photo_categories, String photo_books) {
+    public BookEntity(String name, String genre, Double rating, Integer stock, String publisherName,String photo_categories, String photo_books) {
         this.name = name;
         this.genre = genre;
         this.rating = rating;
@@ -76,11 +76,11 @@ public class BookEntity {
         this.genre = genre;
     }
 
-    public Integer getRating() {
+    public double getRating() {
         return rating;
     }
 
-    public void setRating(Integer rating) {
+    public void setRating(double rating) {
         this.rating = rating;
     }
 

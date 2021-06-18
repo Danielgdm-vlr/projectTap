@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class BookDto implements Serializable {
     private String name;
     private String genre;
-    private int rating;
+    private double rating;
     private int stock;
     private String publisherName;
     private AuthorDto authorDto;
@@ -15,7 +15,7 @@ public class BookDto implements Serializable {
     public BookDto() {
     }
 
-    public BookDto(String name, String genre, int rating, int stock, String publisherName, AuthorDto authorDto,String photo_categories,String photo_books) {
+    public BookDto(String name, String genre, double rating, int stock, String publisherName, AuthorDto authorDto,String photo_categories,String photo_books) {
         this.name = name;
         this.genre = genre;
         this.rating = rating;
@@ -42,7 +42,7 @@ public class BookDto implements Serializable {
         this.genre = genre;
     }
 
-    public int getRating() {
+    public double getRating() {
         return rating;
     }
 
