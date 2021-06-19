@@ -5,12 +5,12 @@ public class ReviewEntity {
     private Integer idBook;
     private Integer idUser;
     private String reviewText;
-    private Integer bookRating;
+    private Double bookRating;
 
     public ReviewEntity() {
     }
 
-    public ReviewEntity(Integer idBook, Integer idUser, String reviewText, Integer bookRating) {
+    public ReviewEntity(Integer idBook, Integer idUser, String reviewText, Double bookRating) {
         this.idBook = idBook;
         this.idUser = idUser;
         this.reviewText = reviewText;
@@ -45,11 +45,11 @@ public class ReviewEntity {
         this.reviewText = reviewText;
     }
 
-    public Integer getBookRating() {
+    public Double getBookRating() {
         return bookRating;
     }
 
-    public void setBookRating(Integer bookRating) {
+    public void setBookRating(Double bookRating) {
         this.bookRating = bookRating;
     }
 
