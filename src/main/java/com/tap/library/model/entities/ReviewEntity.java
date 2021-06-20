@@ -1,18 +1,37 @@
 package com.tap.library.model.entities;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "review")
 public class ReviewEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private Integer id;
-    private Integer idBook;
-    private Integer idUser;
+
+    @OneToOne
+    @JoinColumn(name = "idBook", referencedColumnName = "id")
+    private BookEntity bookEntity;
+
+    @OneToOne
+    @JoinColumn(name = "idUser", referencedColumnName = "id")
+    private UserEntity userEntity;
+
+    @Basic
+    @Column(name = "reviewText")
     private String reviewText;
+
+    @Basic
+    @Column(name = "bookRating")
     private Double bookRating;
 
     public ReviewEntity() {
     }
 
-    public ReviewEntity(Integer idBook, Integer idUser, String reviewText, Double bookRating) {
-        this.idBook = idBook;
-        this.idUser = idUser;
+    public ReviewEntity(BookEntity bookEntity, UserEntity userEntity, String reviewText, Double bookRating) {
+        this.bookEntity = bookEntity;
+        this.userEntity = userEntity;
         this.reviewText = reviewText;
         this.bookRating = bookRating;
     }
@@ -21,20 +40,20 @@ public class ReviewEntity {
         return id;
     }
 
-    public Integer getIdBook() {
-        return idBook;
+    public BookEntity getBookEntity() {
+        return bookEntity;
     }
 
-    public void setIdBook(Integer idBook) {
-        this.idBook = idBook;
+    public void setBookEntity(BookEntity bookEntity) {
+        this.bookEntity = bookEntity;
     }
 
-    public Integer getIdUser() {
-        return idUser;
+    public UserEntity getUserEntity() {
+        return userEntity;
     }
 
-    public void setIdUser(Integer idUser) {
-        this.idUser = idUser;
+    public void setUserEntity(UserEntity userEntity) {
+        this.userEntity = userEntity;
     }
 
     public String getReviewText() {
@@ -57,8 +76,8 @@ public class ReviewEntity {
     public String toString() {
         return "Reviews{" +
                 "id=" + id +
-                ", idBook=" + idBook +
-                ", idUser=" + idUser +
+                ", idBook=" + bookEntity +
+                ", idUser=" + userEntity +
                 ", reviewText='" + reviewText + '\'' +
                 ", bookRating=" + bookRating +
                 '}';
