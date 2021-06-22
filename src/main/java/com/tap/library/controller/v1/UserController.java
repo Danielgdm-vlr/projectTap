@@ -2,6 +2,7 @@ package com.tap.library.controller.v1;
 
 import com.tap.library.model.dto.UserDto;
 import com.tap.library.service.implementation.UserServiceImpl;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,6 +21,11 @@ public class UserController {
     @PostMapping
     public void add(@RequestBody UserDto userDto){
         userServiceImpl.add(userDto);
+    }
+
+    @PutMapping
+    public void update(@RequestBody UserDto userDto){
+        userServiceImpl.update(userDto);
     }
 
     @GetMapping

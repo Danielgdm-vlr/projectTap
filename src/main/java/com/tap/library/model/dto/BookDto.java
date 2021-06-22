@@ -3,6 +3,9 @@ package com.tap.library.model.dto;
 import java.io.Serializable;
 
 public class BookDto implements Serializable {
+
+
+    private int id;
     private String name;
     private String genre;
     private double rating;
@@ -15,7 +18,8 @@ public class BookDto implements Serializable {
     public BookDto() {
     }
 
-    public BookDto(String name, String genre, double rating, int stock, String publisherName, AuthorDto authorDto,String photo_categories,String photo_books) {
+    public BookDto(int id, String name, String genre, double rating, int stock, String publisherName, AuthorDto authorDto,String photo_categories,String photo_books) {
+        this.id= id;
         this.name = name;
         this.genre = genre;
         this.rating = rating;
@@ -25,7 +29,10 @@ public class BookDto implements Serializable {
         this.photo_categories=photo_categories;
         this.photo_books=photo_books;
     }
+    public int getId() {return id;}
 
+    public void setId(int id) {this.id = id;
+    }
     public String getName() {
         return name;
     }
@@ -86,6 +93,7 @@ public class BookDto implements Serializable {
     public String toString() {
         return "BookDto{" +
                 "name='" + name + '\'' +
+                ", id='" + id + '\'' +
                 ", genre='" + genre + '\'' +
                 ", rating=" + rating +
                 ", stock=" + stock +

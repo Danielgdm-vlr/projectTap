@@ -107,6 +107,7 @@ public class BookServiceImpl implements BookService {
 
     private BookDto convertEntityToDto(BookEntity bookEntity){
         BookDto bookDto = new BookDto(
+                bookEntity.getId(),
                 bookEntity.getName(),
                 bookEntity.getGenre(),
                 bookEntity.getRating(),

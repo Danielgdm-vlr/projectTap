@@ -5,8 +5,10 @@ import com.tap.library.model.entities.UserEntity;
 import com.tap.library.repository.UserRepository;
 import com.tap.library.service.intrf.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,6 +45,13 @@ public class UserServiceImpl implements UserService {
         }
 
         return null;
+    }
+
+    @Transactional
+    @Modifying
+    public void update(UserDto userDto){
+        UserEntity userEntity = convertDtoToEntity(userDto);
+        userRepository.updateUser(userEntity.getEmail(), userEntity.getFirstName());
     }
 
     private UserEntity convertDtoToEntity(UserDto userDto){

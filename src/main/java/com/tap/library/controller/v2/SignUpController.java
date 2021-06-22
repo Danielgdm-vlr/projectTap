@@ -6,12 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-public record SignInController(UserServiceImpl userServiceImpl) {
+public record SignUpController(UserServiceImpl userServiceImpl) {
     @Autowired
-    public SignInController{
+    public SignUpController {
     }
 
-    @RequestMapping("api/v2/signIn")
+    @RequestMapping("api/v2/signUp")
     @ResponseBody
     @GetMapping
     public void signIn(@RequestParam UserDto userDto){

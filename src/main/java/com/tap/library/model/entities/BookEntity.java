@@ -46,7 +46,8 @@ public class BookEntity {
     public BookEntity() {
     }
 
-    public BookEntity(String name, String genre, Double rating, Integer stock, String publisherName,String photo_categories, String photo_books) {
+    public BookEntity(Integer id, String name, String genre, Double rating, Integer stock, String publisherName,String photo_categories, String photo_books) {
+        this.id= id;
         this.name = name;
         this.genre = genre;
         this.rating = rating;

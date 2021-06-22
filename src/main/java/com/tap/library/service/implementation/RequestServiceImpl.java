@@ -85,6 +85,7 @@ public class RequestServiceImpl implements RequestService {
 
     private BookDto convertBookEntityToDto(BookEntity bookEntity){
         return new BookDto(
+                bookEntity.getId(),
                 bookEntity.getName(),
                 bookEntity.getGenre(),
                 bookEntity.getRating(),
