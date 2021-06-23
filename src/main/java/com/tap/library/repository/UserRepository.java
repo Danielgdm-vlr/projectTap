@@ -29,8 +29,9 @@ public interface UserRepository extends JpaRepository<UserEntity, Integer> {
     @Query("select user from UserEntity user where user.isManager = false")
     List<UserEntity> findClients();
 
-    @Query("update UserEntity user " +
-            "set user.firstName = ?2 " +
-            "where user.email = ?1 ")
-    void updateUser(String email, String firstName);
+//    @Query("update UserEntity user set " +
+//            "user.firstName = ?2," +
+//            "user.cnp = ?3 " +
+//            "where user.email = ?1 ")
+//    void updateUser(String email, String firstName, String cnp);
 }

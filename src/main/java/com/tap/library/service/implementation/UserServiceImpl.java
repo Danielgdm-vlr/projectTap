@@ -50,8 +50,15 @@ public class UserServiceImpl implements UserService {
     @Transactional
     @Modifying
     public void update(UserDto userDto){
-        UserEntity userEntity = convertDtoToEntity(userDto);
-        userRepository.updateUser(userEntity.getEmail(), userEntity.getFirstName());
+        UserEntity userEntity = userRepository.findByUsername(userDto.getUsername()).get(0);
+
+        userEntity.setCnp(userDto.getCnp());
+        userEntity.setEmail(userDto.getEmailAddress());
+        userEntity.setFirstName(userDto.getFirstName());
+        userEntity.setLastName(userDto.getLastName());
+        userEntity.setManager(userDto.isManager());
+        userEntity.setTelephoneNumber(userDto.getTelephoneNumber());
+        userEntity.setPassword(userDto.getPassword());
     }
 
     private UserEntity convertDtoToEntity(UserDto userDto){
