@@ -13,8 +13,8 @@ public record SignUpController(UserServiceImpl userServiceImpl) {
 
     @RequestMapping("api/v2/signUp")
     @ResponseBody
-    @GetMapping
-    public void signIn(@RequestParam UserDto userDto){
+    @PostMapping
+    public void signIn(@RequestBody UserDto userDto){
         userServiceImpl.add(userDto);
     }
 }

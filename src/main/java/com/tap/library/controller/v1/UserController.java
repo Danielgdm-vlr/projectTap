@@ -19,6 +19,7 @@ public class UserController {
     }
 
     @PostMapping
+    @ResponseBody
     public void add(@RequestBody UserDto userDto){
         userServiceImpl.add(userDto);
     }
